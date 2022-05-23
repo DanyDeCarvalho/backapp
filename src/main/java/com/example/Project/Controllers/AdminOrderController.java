@@ -9,21 +9,21 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/orders")
-public class OrderController {
+@RequestMapping("/admin/orders")
+public class AdminOrderController {
+
     private final OrderService orderService;
 
-    public OrderController(OrderService orderService) {
+    public AdminOrderController(OrderService orderService) {
         this.orderService = orderService;
     }
 
-    @GetMapping
-    public List<Order> fetchAllOrders() {
-        return orderService.getAllOrders();
+    @DeleteMapping("/delete/{id}")
+    public void deleteOrder(@PathVariable String id) {
+        orderService.deleteOrderbyId(id);
     }
-
-    @GetMapping("/{id}")
-    public Optional<Order> getOrder(@PathVariable String id) {
-        return orderService.getOrderbyId(id);
+    @PostMapping("/save")
+    public Order addOrder(@RequestBody Order order) {
+        return orderService.saveOrder(order);
     }
 }

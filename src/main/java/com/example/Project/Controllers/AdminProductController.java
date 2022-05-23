@@ -1,5 +1,4 @@
 package com.example.Project.Controllers;
-
 import com.example.Project.Models.Order;
 import com.example.Project.Models.Product;
 import com.example.Project.Models.User;
@@ -10,19 +9,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/admin/products")
+public class AdminProductController {
     private final ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public AdminProductController(ProductService productService) {
         this.productService = productService;
     }
-    @GetMapping
-    public List<Product> fetchAllProducts() {
-        return productService.getAllProducts();
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteProduct(@PathVariable String id) {
+        productService.deleteProductbyId(id);
     }
-    @GetMapping("/{id}")
-    public Optional<Product> getProduct(@PathVariable String id) {
-        return productService.getProductbyId(id);
+    @PostMapping("/save")
+    public Product addProduct(@RequestBody Product product) {
+        return productService.saveProduct(product);
     }
 }
