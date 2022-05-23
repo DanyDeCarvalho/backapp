@@ -18,6 +18,7 @@ public class BankCard {
     private Date validityDate;
     @Field
     private String cryptogram;
+
     public BankCard() {}
 
 }
