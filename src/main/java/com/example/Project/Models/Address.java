@@ -14,15 +14,12 @@ public class Address {
     private String street;
     @Field
     private Integer postalCode;
-    @Field
-    private Integer number;
-    public Address() {}
 
+    public Address() {}
 
     public Address(String country, String street, Integer postalCode, Integer number) {
         this.country = country;
         this.street = street;
         this.postalCode = postalCode;
-        this.number = number;
     }
 }

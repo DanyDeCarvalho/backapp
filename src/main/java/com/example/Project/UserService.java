@@ -1,12 +1,14 @@
 package com.example.Project;
 
 import com.example.Project.Models.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.Project.Session.UserPassword;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -36,11 +38,15 @@ public class UserService {
         customer.setPasswordHash(hashSalt.get(0));
         return userRepository.insert(customer);
     }
-    public User signIn(User customer) {
+    public ResponseEntity<Object> signIn(User customer) {
         Optional<User> user = userRepository.findByEmail(customer.getEmail());
-        user.ifPresent(u->{
-            UserPassword.checkPassword(customer.getPassword(), u.getPasswordSalt());
-        });
-        return userRepository.insert(customer);
+        if (user.isPresent()) {
+            boolean check = UserPassword.checkPassword(customer.getPassword(), user.get().getPasswordSalt());
+            if (check) {
+                return ResponseEntity.ok(UUID.randomUUID());
+            }
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }

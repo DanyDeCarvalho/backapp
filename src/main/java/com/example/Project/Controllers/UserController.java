@@ -2,6 +2,7 @@ package com.example.Project.Controllers;
 import com.example.Project.Models.User;
 import com.example.Project.UserService;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class UserController {
         return userService.signUp(user);
     }
     @PostMapping("/signIn")
-    public User signIn(@RequestBody User user) {
+    public ResponseEntity<Object> signIn(@RequestBody User user) {
         return userService.signIn(user);
     }
 
