@@ -3,6 +3,7 @@ import com.example.Project.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/admin/users")
 public class AdminUserController {

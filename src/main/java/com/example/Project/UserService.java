@@ -28,6 +28,7 @@ public class UserService {
     public void deleteUserbyId(String id) {
          userRepository.deleteById(id);
     }
+
     public User signUp(User customer) {
         Optional<User> user = userRepository.findByEmail(customer.getEmail());
         ArrayList<String> hashSalt = UserPassword.passwordHash(customer.getPassword());
