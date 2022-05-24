@@ -14,6 +14,8 @@ public class Address {
     private String street;
     @Field
     private Integer postalCode;
+    @Field
+    private Integer number;
 
     public Address() {}
 
@@ -21,5 +23,6 @@ public class Address {
         this.country = country;
         this.street = street;
         this.postalCode = postalCode;
+        this.number = number;
     }
 }

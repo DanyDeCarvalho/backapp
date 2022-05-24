@@ -25,6 +25,7 @@ public class AdminOrderController {
     }
     @PostMapping("/save")
     public Order addOrder(@RequestBody Order order) {
-        return orderService.saveOrder(order);
+        Order order1 = orderService.saveOrder(order);
+        return order1;
     }
 }

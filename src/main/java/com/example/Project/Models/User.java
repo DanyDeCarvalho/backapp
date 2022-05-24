@@ -16,8 +16,6 @@ public class User {
     @Field
     private Integer age;
     @Field
-    private Address address;
-    @Field
     private String email;
     @Field
     private String civility;
@@ -34,11 +32,10 @@ public class User {
     public User() {
     }
 
-    public User(String name, String lastName, Integer age, Address address, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
+    public User(String name, String lastName, Integer age, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.address = address;
         this.email = email;
         this.civility = civility;
         this.admin = admin;
@@ -48,12 +45,11 @@ public class User {
         PasswordHash = passwordHash;
     }
 
-    public User(String id, String name, String lastName, Integer age, Address address, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
+    public User(String id, String name, String lastName, Integer age, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.address = address;
         this.email = email;
         this.civility = civility;
         this.admin = admin;
@@ -93,14 +89,6 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public String getEmail() {

@@ -22,6 +22,11 @@ public class ProductController {
     public List<Product> fetchAllProducts() {
         return productService.getAllProducts();
     }
+    @PostMapping("/save")
+    public Product addProduct(@RequestBody Product product) {
+        Product product1 = productService.saveProduct(product);
+        return product1;
+    }
     @GetMapping("/{id}")
     public Optional<Product> getProduct(@PathVariable String id) {
         return productService.getProductbyId(id);
