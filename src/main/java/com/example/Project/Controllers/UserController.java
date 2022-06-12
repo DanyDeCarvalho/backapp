@@ -29,10 +29,6 @@ public class UserController {
         return userService.getUserId(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable String id) {
-        userService.deleteUserbyId(id);
-    }
     @PostMapping("/signUp")
     public User addUser(@RequestBody User user) {
         return userService.signUp(user);

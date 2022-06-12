@@ -31,4 +31,16 @@ public class ProductController {
     public Optional<Product> getProduct(@PathVariable String id) {
         return productService.getProductbyId(id);
     }
+    @GetMapping("/color/{color}")
+    public List<Product> getColorProduct(@PathVariable String color) {
+        return productService.getProductByColor(color);
+    }
+    @GetMapping("/name/{name}")
+    public List<Product> getNameProduct(@PathVariable String name) {
+        return productService.getProductByName(name);
+    }
+    @GetMapping("/rate/{rate}")
+    public List<Product> getRateProduct(@PathVariable Double rate) {
+        return productService.getProductByRate(rate);
+    }
 }

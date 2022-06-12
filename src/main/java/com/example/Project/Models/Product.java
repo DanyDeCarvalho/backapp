@@ -15,13 +15,13 @@ public class Product {
     @Field
     private String images;
     @Field
-    private Categories category;
+    private String category;
     @Field
     private String color;
     @Field
     private Double price;
     @Field
-    private Double average;
+    private Double rate;
     @Field
     private Integer nbVote;
     @Field
@@ -29,7 +29,7 @@ public class Product {
 
     public Product(){}
 
-    public Product(String name, String description, String images, Categories category, String color, Double price, Integer stock) {
+    public Product(String name, String description, String images, String category, String color, Double price, Integer stock) {
         this.name = name;
         this.description = description;
         this.images = images;
@@ -75,11 +75,11 @@ public class Product {
         this.images = images;
     }
 
-    public Categories getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Categories category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -99,12 +99,12 @@ public class Product {
         this.price = price;
     }
 
-    public Double getAverage() {
-        return average;
+    public Double getRate() {
+        return rate;
     }
 
-    public void setAverage(Double average) {
-        this.average = average;
+    public void setRate(Double rate) {
+        this.rate = rate;
     }
 
     public Integer getNbVote() {
