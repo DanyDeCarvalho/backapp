@@ -43,4 +43,8 @@ public class ProductController {
     public List<Product> getRateProduct(@PathVariable Double rate) {
         return productService.getProductByRate(rate);
     }
+    @GetMapping("/category/{category}")
+    public List<Product> getCategoryProduct(@PathVariable String category) {
+        return productService.getProductByCategory(category);
+    }
 }
