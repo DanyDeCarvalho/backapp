@@ -31,20 +31,24 @@ public class ProductController {
     public Optional<Product> getProduct(@PathVariable String id) {
         return productService.getProductbyId(id);
     }
-    @GetMapping("/color/{color}")
-    public List<Product> getColorProduct(@PathVariable String color) {
-        return productService.getProductByColor(color);
+    @PostMapping("/color")
+    public List<Product> getColorProduct(@RequestBody Product product) {
+        return productService.getProductByColor(product);
     }
-    @GetMapping("/name/{name}")
-    public List<Product> getNameProduct(@PathVariable String name) {
-        return productService.getProductByName(name);
+    @PostMapping("/name")
+    public List<Product> getNameProduct(@RequestBody Product product) {
+        return productService.getProductByName(product);
     }
-    @GetMapping("/rate/{rate}")
-    public List<Product> getRateProduct(@PathVariable Double rate) {
-        return productService.getProductByRate(rate);
+    @PostMapping("/rate")
+    public List<Product> getRateProduct(@RequestBody Product product) {
+        return productService.getProductByRate(product);
     }
-    @GetMapping("/category/{category}")
-    public List<Product> getCategoryProduct(@PathVariable String category) {
-        return productService.getProductByCategory(category);
+    @PostMapping("/category")
+    public List<Product> getCategoryProduct(@RequestBody Product product) {
+        return productService.getProductByCategory(product);
+    }
+    @PostMapping("/filter")
+    public List<Product> getProductFilteredProduct(@RequestBody Product product) {
+        return productService.getProductByFilter(product);
     }
 }

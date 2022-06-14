@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Date;
+
 @Document(collection = "Product")
 public class Product {
     @Id
@@ -26,10 +28,12 @@ public class Product {
     private Integer nbVote;
     @Field
     private Integer stock;
+    @Field
+    private Date dateAdded;
 
     public Product(){}
 
-    public Product(String name, String description, String images, String category, String color, Double price, Integer stock) {
+    public Product(String name, String description, String images, String category, String color, Double price, Integer stock, Date dateAdded) {
         this.name = name;
         this.description = description;
         this.images = images;
@@ -37,10 +41,16 @@ public class Product {
         this.color = color;
         this.price = price;
         this.stock = stock;
+        this.dateAdded = dateAdded;
     }
     public Product(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public Product(String category, Double price) {
+        this.category = category;
+        this.price = price;
     }
 
     public String getId() {
