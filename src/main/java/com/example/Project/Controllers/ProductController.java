@@ -22,11 +22,6 @@ public class ProductController {
     public List<Product> fetchAllProducts() {
         return productService.getAllProducts();
     }
-    @PostMapping("/save")
-    public Product addProduct(@RequestBody Product product) {
-        Product product1 = productService.saveProduct(product);
-        return product1;
-    }
     @GetMapping("/{id}")
     public Optional<Product> getProduct(@PathVariable String id) {
         return productService.getProductbyId(id);
@@ -47,8 +42,32 @@ public class ProductController {
     public List<Product> getCategoryProduct(@RequestBody Product product) {
         return productService.getProductByCategory(product);
     }
-    @PostMapping("/filter")
-    public List<Product> getProductFilteredProduct(@RequestBody Product product) {
-        return productService.getProductByFilter(product);
+    @GetMapping("/nameAsc")
+    public List<Product> getNameAscProduct() {
+        return productService.getProductByNameAsc();
+    }
+    @GetMapping("/priceAsc")
+    public List<Product> getPriceAscProduct() {
+        return productService.getProductByPriceAsc();
+    }
+    @GetMapping("/priceDesc")
+    public List<Product> getPriceDescProduct() {
+        return productService.getProductByPriceDesc();
+    }
+    @GetMapping("/rateDesc")
+    public List<Product> getRateDescProduct() {
+        return productService.getProductByRateDesc();
+    }
+    @GetMapping("/top4")
+    public List<Product> getMostRatedProduct() {
+        return productService.getProductByHighRate();
+    }
+    @PostMapping("/categoryAndPriceAndRate")
+    public List<Product> getProductFilteredProductByCategoryAndPriceAndRate(@RequestBody Product product) {
+        return productService.getProductByCategoryAndPriceAndRate(product);
+    }
+    @PostMapping("/categoryAndPriceAndName")
+    public List<Product> getProductFilteredProductByCategoryAndPriceAndName(@RequestBody Product product) {
+        return productService.getProductByCategoryAndPriceAndName(product);
     }
 }

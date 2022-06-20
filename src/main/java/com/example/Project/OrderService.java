@@ -22,6 +22,15 @@ public class OrderService {
 
         return orderRepository.findById(id);
     }
+
+    public List<Order> getTop5Orders(String id) {
+
+        return orderRepository.findTop5ByOrderByOrderDateDesc(id);
+    }
+    public List<Order> getAllForOneUser(String id) {
+
+        return orderRepository.findAllByOrderByOrderDateDesc(id);
+    }
     public void deleteOrderbyId(String id) {
         orderRepository.deleteById(id);
     }

@@ -44,7 +44,25 @@ public class ProductService {
     public List<Product> getProductByCategory(Product product) {
         return productRepository.findProductByCategory(product.getCategory());
     };
-    public List<Product> getProductByFilter(Product product) {
-        return productRepository.findProductByCategoryOrPriceOrRate(product.getCategory(), product.getPrice(), product.getRate());
+    public List<Product> getProductByNameAsc() {
+        return productRepository.findAllByOrderByNameAsc();
+    };
+    public List<Product> getProductByPriceAsc() {
+        return productRepository.findAllByOrderByPriceAsc();
+    };
+    public List<Product> getProductByPriceDesc() {
+        return productRepository.findAllByOrderByPriceDesc();
+    };
+    public List<Product> getProductByRateDesc() {
+        return productRepository.findAllByOrderByRateDesc();
+    };
+    public List<Product> getProductByHighRate() {
+        return productRepository.findTop4ByOrderByRateDesc();
+    }
+    public List<Product> getProductByCategoryAndPriceAndRate(Product product) {
+        return productRepository.findProductByCategoryAndPriceAndRate(product.getCategory(), product.getPrice(), product.getRate());
+    };
+    public List<Product> getProductByCategoryAndPriceAndName(Product product) {
+        return productRepository.findProductByCategoryAndPriceAndName(product.getCategory(), product.getPrice(), product.getName());
     };
 }

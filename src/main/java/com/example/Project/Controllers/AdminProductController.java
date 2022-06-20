@@ -18,6 +18,11 @@ public class AdminProductController {
         this.productService = productService;
     }
 
+    @PostMapping("/save")
+    public Product addProduct(@RequestBody Product product) {
+        Product product1 = productService.saveProduct(product);
+        return product1;
+    }
     @DeleteMapping("/delete/{id}")
     public void deleteProduct(@PathVariable String id) {
         productService.deleteProductbyId(id);

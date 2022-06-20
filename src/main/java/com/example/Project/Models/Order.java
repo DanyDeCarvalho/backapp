@@ -1,10 +1,14 @@
 package com.example.Project.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.Set;
+
 @Document(collection = "Order")
 public class Order {
     @Id
@@ -14,9 +18,10 @@ public class Order {
     @Field
     private String status;
     @Field
-    private Date orderDate;
-    @Field
-    private User user;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    private LocalDateTime orderDate;
+    @DBRef
+    private Set<User> user;
     @Field
     private Double total;
     @Field
@@ -26,11 +31,16 @@ public class Order {
 
     public Order() {}
 
-
     public Order(Integer orderNumber, String status, Double total) {
         this.orderNumber = orderNumber;
         this.status = status;
         this.total = total;
+    }
+
+    public Order(Integer orderNumber, LocalDateTime orderDate, Set<User> user) {
+        this.orderNumber = orderNumber;
+        this.orderDate = orderDate;
+        this.user = user;
     }
 
     public String getId() {
@@ -57,19 +67,20 @@ public class Order {
         this.status = status;
     }
 
-    public Date getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 
-    public User getUser() {
+
+    public Set<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Set<User> user) {
         this.user = user;
     }
 

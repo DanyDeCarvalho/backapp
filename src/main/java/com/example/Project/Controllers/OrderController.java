@@ -27,4 +27,20 @@ public class OrderController {
     public Optional<Order> getOrder(@PathVariable String id) {
         return orderService.getOrderbyId(id);
     }
+
+    @GetMapping("/{id}/last5Orders")
+    public List<Order> getTop5Orders(@PathVariable String id) {
+        return orderService.getTop5Orders(id);
+    }
+
+    @GetMapping("/{id}/allOrders")
+    public List<Order> getAllOrders(@PathVariable String id) {
+        return orderService.getAllForOneUser(id);
+    }
+
+    @PostMapping("/save")
+    public Order addOrder(@RequestBody Order order) {
+        Order order1 = orderService.saveOrder(order);
+        return order1;
+    }
 }

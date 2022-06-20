@@ -15,7 +15,13 @@ public class Product {
     @Field
     private String description;
     @Field
-    private String images;
+    private String image1;
+    @Field
+    private String image2;
+    @Field
+    private String image3;
+    @Field
+    private String image4;
     @Field
     private String category;
     @Field
@@ -30,19 +36,46 @@ public class Product {
     private Integer stock;
     @Field
     private Date dateAdded;
+    @Field
+    private Integer quantityOnCart;
 
     public Product(){}
 
-    public Product(String name, String description, String images, String category, String color, Double price, Integer stock, Date dateAdded) {
+    public Product(String id, String name, String description, String image1, String image2, String image3, String image4, String category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.images = images;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
         this.category = category;
         this.color = color;
         this.price = price;
+        this.rate = rate;
+        this.nbVote = nbVote;
         this.stock = stock;
         this.dateAdded = dateAdded;
+        this.quantityOnCart = quantityOnCart;
     }
+
+    public Product(String name, String description, String image1, String image2, String image3, String image4, String category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
+        this.name = name;
+        this.description = description;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
+        this.category = category;
+        this.color = color;
+        this.price = price;
+        this.rate = rate;
+        this.nbVote = nbVote;
+        this.stock = stock;
+        this.dateAdded = dateAdded;
+        this.quantityOnCart = quantityOnCart;
+    }
+
     public Product(String name, String description) {
         this.name = name;
         this.description = description;
@@ -77,12 +110,44 @@ public class Product {
         this.description = description;
     }
 
-    public String getImages() {
-        return images;
+    public String getImage1() {
+        return image1;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+
+    public String getImage4() {
+        return image4;
+    }
+
+    public void setImage4(String image4) {
+        this.image4 = image4;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public String getCategory() {
@@ -131,6 +196,14 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Integer getQuantityOnCart() {
+        return quantityOnCart;
+    }
+
+    public void setQuantityOnCart(Integer quantityOnCart) {
+        this.quantityOnCart = quantityOnCart;
     }
 }
 

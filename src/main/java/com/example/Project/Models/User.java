@@ -59,6 +59,12 @@ public class User {
         PasswordHash = passwordHash;
     }
 
+    public User(String email, String password, Boolean admin) {
+        this.email = email;
+        this.password = password;
+        this.admin = admin;
+    }
+
     public String getId() {
         return id;
     }

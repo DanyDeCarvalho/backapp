@@ -1,16 +1,17 @@
 package com.example.Project.Models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Set;
 
 @Document(collection = "Cart")
 public class Cart {
     @Id
     private String id;
     @Field
-    private String productReference;
+    private Set<Product> product;
     @Field
     private String userSession;
     @Field
@@ -23,9 +24,9 @@ public class Cart {
     private Float total;
     public Cart() {}
 
-    public Cart(String id, String productReference, String userSession, Boolean validation, String paymentMethod, Integer quantity, Float total) {
+    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String paymentMethod, Integer quantity, Float total) {
         this.id = id;
-        this.productReference = productReference;
+        this.product = product;
         this.userSession = userSession;
         this.validation = validation;
         this.paymentMethod = paymentMethod;
@@ -41,12 +42,12 @@ public class Cart {
         this.id = id;
     }
 
-    public String getProductReference() {
-        return productReference;
+    public Set<Product> getProduct() {
+        return product;
     }
 
-    public void setProductReference(String productReference) {
-        this.productReference = productReference;
+    public void setProduct(Set<Product> product) {
+        this.product = product;
     }
 
     public String getUserSession() {
