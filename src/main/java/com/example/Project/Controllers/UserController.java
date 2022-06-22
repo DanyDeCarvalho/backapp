@@ -37,7 +37,7 @@ public class UserController {
     public ResponseEntity<Object> signIn(@RequestBody User user) {
         return userService.signIn(user);
     }
-    @PutMapping("/update/{id}")
+    @PutMapping("/save")
     public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }

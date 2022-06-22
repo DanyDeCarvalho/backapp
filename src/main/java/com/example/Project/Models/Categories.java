@@ -20,6 +20,11 @@ public class Categories {
         this.description = description;
     }
 
+    public Categories( String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public String getId() {
         return id;
     }

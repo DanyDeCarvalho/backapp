@@ -19,7 +19,7 @@ public class UserPassword {
     public static boolean checkPassword(String password , String salt)
     {
         boolean bool;
-        if (BCrypt.checkpw(password, salt))
+        if(BCrypt.checkpw(password, salt))
             bool  = true;
         else
             bool = false;

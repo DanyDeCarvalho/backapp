@@ -5,8 +5,6 @@ import com.example.Project.Models.Product;
 import com.example.Project.Session.CartQuantity;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class CartService {

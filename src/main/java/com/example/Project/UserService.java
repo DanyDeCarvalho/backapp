@@ -40,9 +40,10 @@ public class UserService {
     }
     public ResponseEntity<Object> signIn(User customer) {
         Optional<User> user = userRepository.findByEmail(customer.getEmail());
+
         if (user.isPresent()) {
             boolean check = UserPassword.checkPassword(customer.getPassword(), user.get().getPasswordSalt());
-            if (true) {
+            if (check) {
                 return ResponseEntity.ok(UUID.randomUUID());
             }
             return ResponseEntity.badRequest().build();
