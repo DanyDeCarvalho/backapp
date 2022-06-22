@@ -20,7 +20,7 @@ public class CategoriesController {
         this.categoriesService = categoriesService;
     }
 
-    @GetMapping("/categories")
+    @GetMapping
     public List<Categories> fetchAllCategories() {
         return categoriesService.getAllCategories();
     }
