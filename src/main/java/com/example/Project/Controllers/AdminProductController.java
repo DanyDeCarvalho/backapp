@@ -27,5 +27,8 @@ public class AdminProductController {
     public void deleteProduct(@PathVariable String id) {
         productService.deleteProductbyId(id);
     }
-
+    @PutMapping("/save")
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.updateProduct(product);
+    }
 }

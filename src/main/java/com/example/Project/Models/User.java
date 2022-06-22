@@ -31,7 +31,7 @@ public class User {
     @Field
     private Boolean admin;
     @Field
-    private BankCard bankCard;
+    private Set<BankCard> bankCard;
     @Field
     private String passwordSalt;
     @Field
@@ -40,10 +40,12 @@ public class User {
     private String PasswordHash;
     @Field
     private Set<Role> roles = new HashSet<>();
+
     public User() {
     }
 
-    public User(String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+    public User(String id, String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+        this.id = id;
         this.userName = userName;
         this.name = name;
         this.lastName = lastName;
@@ -61,7 +63,8 @@ public class User {
         this.roles = roles;
     }
 
-    public User(String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
+    public User(String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+        this.userName = userName;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -75,50 +78,7 @@ public class User {
         this.passwordSalt = passwordSalt;
         this.password = password;
         PasswordHash = passwordHash;
-    }
-
-    public User(String id, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.street = street;
-        this.zipCode = zipCode;
-        this.city = city;
-        this.civility = civility;
-        this.admin = admin;
-        this.bankCard = bankCard;
-        this.passwordSalt = passwordSalt;
-        this.password = password;
-        PasswordHash = passwordHash;
-    }
-
-    public User(String name, String lastName, Integer age, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.civility = civility;
-        this.admin = admin;
-        this.bankCard = bankCard;
-        this.passwordSalt = passwordSalt;
-        this.password = password;
-        PasswordHash = passwordHash;
-    }
-
-    public User(String id, String name, String lastName, Integer age, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
-        this.civility = civility;
-        this.admin = admin;
-        this.bankCard = bankCard;
-        this.passwordSalt = passwordSalt;
-        this.password = password;
-        PasswordHash = passwordHash;
+        this.roles = roles;
     }
 
     public User(String email, String password, Boolean admin) {
@@ -200,11 +160,11 @@ public class User {
         this.admin = admin;
     }
 
-    public BankCard getBankCard() {
+    public Set<BankCard> getBankCard() {
         return bankCard;
     }
 
-    public void setBankCard(BankCard bankCard) {
+    public void setBankCard(Set<BankCard> bankCard) {
         this.bankCard = bankCard;
     }
 

@@ -71,8 +71,5 @@ public class ProductController {
     public List<Product> getProductFilteredProductByCategoryAndPriceAndName(@RequestBody Product product) {
         return productService.getProductByCategoryAndPriceAndName(product);
     }
-    @PutMapping("/{id}/update")
-    public Product updateProduct(@PathVariable String id,@RequestBody Product product) {
-        return productService.updateProduct(id, product);
-    }
+
 }

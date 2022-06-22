@@ -27,9 +27,30 @@ public class Order {
     @Field
     private Cart cart;
     @Field
-    private DeliveryAddress deliveryAddress;
+    private Set<DeliveryAddress> deliveryAddress;
 
     public Order() {}
+
+    public Order(String id, Integer orderNumber, String status, LocalDateTime orderDate, Set<User> user, Double total, Cart cart, Set<DeliveryAddress> deliveryAddress) {
+        this.id = id;
+        this.orderNumber = orderNumber;
+        this.status = status;
+        this.orderDate = orderDate;
+        this.user = user;
+        this.total = total;
+        this.cart = cart;
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public Order(Integer orderNumber, String status, LocalDateTime orderDate, Set<User> user, Double total, Cart cart, Set<DeliveryAddress> deliveryAddress) {
+        this.orderNumber = orderNumber;
+        this.status = status;
+        this.orderDate = orderDate;
+        this.user = user;
+        this.total = total;
+        this.cart = cart;
+        this.deliveryAddress = deliveryAddress;
+    }
 
     public Order(Integer orderNumber, String status, Double total) {
         this.orderNumber = orderNumber;
@@ -100,11 +121,11 @@ public class Order {
         this.cart = cart;
     }
 
-    public DeliveryAddress getDeliveryAddress() {
+    public Set<DeliveryAddress> getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+    public void setDeliveryAddress(Set<DeliveryAddress> deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
 }

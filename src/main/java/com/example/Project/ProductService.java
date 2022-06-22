@@ -68,8 +68,8 @@ public class ProductService {
         return productRepository.findProductByCategoryAndPriceAndName(product.getCategory(), product.getPrice(), product.getName());
     };
 
-    public Product updateProduct(String id, Product product) {
-        Product thisProduct = productRepository.findById(id).get();
+    public Product updateProduct(Product product) {
+        Product thisProduct = productRepository.findById(product.getId()).get();
         thisProduct.setName(product.getName());
         thisProduct.setDescription(product.getDescription());
         thisProduct.setCategory(product.getCategory());
