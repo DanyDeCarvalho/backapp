@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
+import java.util.Set;
 
 @Document(collection = "Product")
 public class Product {
@@ -23,7 +24,7 @@ public class Product {
     @Field
     private String image4;
     @Field
-    private String category;
+    private Set<Categories> category;
     @Field
     private String color;
     @Field
@@ -41,7 +42,7 @@ public class Product {
 
     public Product(){}
 
-    public Product(String id, String name, String description, String image1, String image2, String image3, String image4, String category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
+    public Product(String id, String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -59,7 +60,7 @@ public class Product {
         this.quantityOnCart = quantityOnCart;
     }
 
-    public Product(String name, String description, String image1, String image2, String image3, String image4, String category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
+    public Product(String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart) {
         this.name = name;
         this.description = description;
         this.image1 = image1;
@@ -76,15 +77,12 @@ public class Product {
         this.quantityOnCart = quantityOnCart;
     }
 
+
     public Product(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Product(String category, Double price) {
-        this.category = category;
-        this.price = price;
-    }
 
     public String getId() {
         return id;
@@ -150,11 +148,11 @@ public class Product {
         this.dateAdded = dateAdded;
     }
 
-    public String getCategory() {
+    public Set<Categories> getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Set<Categories> category) {
         this.category = category;
     }
 

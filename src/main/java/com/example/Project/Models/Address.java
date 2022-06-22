@@ -9,6 +9,8 @@ public class Address {
     @Id
     private String id;
     @Field
+    private String country;
+    @Field
     private String street;
     @Field
     private Integer postalCode;

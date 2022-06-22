@@ -19,14 +19,6 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner runner(ProductRepository repository) {
-		return args -> {
-			Product product = new Product(
-				"produit", "test"
-			);
-			repository.insert(product);
-		};
 
-	}
+
 }
