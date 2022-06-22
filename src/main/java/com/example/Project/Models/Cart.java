@@ -17,12 +17,35 @@ public class Cart {
     @Field
     private Boolean validation;
     @Field
+    private String productId;
+    @Field
     private String paymentMethod;
     @Field
     private Integer quantity;
     @Field
     private Float total;
     public Cart() {}
+
+    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Float total) {
+        this.id = id;
+        this.product = product;
+        this.userSession = userSession;
+        this.validation = validation;
+        this.productId = productId;
+        this.paymentMethod = paymentMethod;
+        this.quantity = quantity;
+        this.total = total;
+    }
+
+    public Cart(Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Float total) {
+        this.product = product;
+        this.userSession = userSession;
+        this.validation = validation;
+        this.productId = productId;
+        this.paymentMethod = paymentMethod;
+        this.quantity = quantity;
+        this.total = total;
+    }
 
     public Cart(String id, Set<Product> product, String userSession, Boolean validation, String paymentMethod, Integer quantity, Float total) {
         this.id = id;
@@ -88,5 +111,13 @@ public class Cart {
 
     public void setTotal(Float total) {
         this.total = total;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 }

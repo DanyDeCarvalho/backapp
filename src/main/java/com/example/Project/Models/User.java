@@ -3,12 +3,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Document(collection = "User")
 public class User {
     @Id
     private String id;
+    @Field
+    private String userName;
     @Field
     private String name;
     @Field
@@ -17,6 +20,12 @@ public class User {
     private Integer age;
     @Field
     private String email;
+    @Field
+    private String street;
+    @Field
+    private String zipCode;
+    @Field
+    private String city;
     @Field
     private String civility;
     @Field
@@ -29,7 +38,60 @@ public class User {
     private String password;
     @Field
     private String PasswordHash;
+    @Field
+    private Set<Role> roles = new HashSet<>();
     public User() {
+    }
+
+    public User(String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+        this.userName = userName;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.civility = civility;
+        this.admin = admin;
+        this.bankCard = bankCard;
+        this.passwordSalt = passwordSalt;
+        this.password = password;
+        PasswordHash = passwordHash;
+        this.roles = roles;
+    }
+
+    public User(String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.civility = civility;
+        this.admin = admin;
+        this.bankCard = bankCard;
+        this.passwordSalt = passwordSalt;
+        this.password = password;
+        PasswordHash = passwordHash;
+    }
+
+    public User(String id, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.civility = civility;
+        this.admin = admin;
+        this.bankCard = bankCard;
+        this.passwordSalt = passwordSalt;
+        this.password = password;
+        PasswordHash = passwordHash;
     }
 
     public User(String name, String lastName, Integer age, String email, String civility, Boolean admin, BankCard bankCard, String passwordSalt, String password, String passwordHash) {
@@ -63,6 +125,23 @@ public class User {
         this.email = email;
         this.password = password;
         this.admin = admin;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+
+    public User(String username, String email, String encode) {
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getId() {
@@ -151,5 +230,37 @@ public class User {
 
     public void setPasswordHash(String passwordHash) {
         PasswordHash = passwordHash;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

@@ -24,7 +24,7 @@ public class CartController {
     }
 
     @PutMapping("/add")
-    public Cart addCartNumber(@RequestBody Cart cart) {
+    public Cart addCartNumber(@RequestBody Cart cart ) {
         return cartService.addCart(cart);
     }
 }

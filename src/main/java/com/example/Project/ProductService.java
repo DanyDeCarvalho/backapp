@@ -1,8 +1,6 @@
 package com.example.Project;
 
-import com.example.Project.Models.Order;
 import com.example.Project.Models.Product;
-import com.example.Project.Models.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +20,13 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-    public Optional<Product> getProductbyId(String id) {
 
-        return productRepository.findById(id);
+    public ResponseEntity<?> getProductbyId(String id) {
+        Optional<Product> product1 =  productRepository.findById(id);
+        if(product1.isPresent()) {
+            return ResponseEntity.ok(product1);
+        }
+        return ResponseEntity.badRequest().body("");
     }
     public void deleteProductbyId(String id) {
         productRepository.deleteById(id);
@@ -65,4 +67,19 @@ public class ProductService {
     public List<Product> getProductByCategoryAndPriceAndName(Product product) {
         return productRepository.findProductByCategoryAndPriceAndName(product.getCategory(), product.getPrice(), product.getName());
     };
+
+    public Product updateProduct(String id, Product product) {
+        Product thisProduct = productRepository.findById(id).get();
+        thisProduct.setName(product.getName());
+        thisProduct.setDescription(product.getDescription());
+        thisProduct.setCategory(product.getCategory());
+        thisProduct.setStock(product.getStock());
+        thisProduct.setPrice(product.getPrice());
+        thisProduct.setColor(product.getColor());
+        thisProduct.setImage1(product.getImage1());
+        thisProduct.setImage2(product.getImage2());
+        thisProduct.setImage3(product.getImage3());
+        thisProduct.setImage4(product.getImage4());
+        return productRepository.save(thisProduct);
+    }
 }

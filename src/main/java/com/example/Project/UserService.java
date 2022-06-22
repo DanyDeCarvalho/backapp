@@ -49,4 +49,15 @@ public class UserService {
         }
         return ResponseEntity.notFound().build();
     }
+
+    public User updateUser(User user) {
+        User thisUser = userRepository.findById(user.getId()).get();
+        thisUser.setEmail(user.getEmail());
+        thisUser.setCity(user.getCity());
+        thisUser.setStreet(user.getStreet());
+        thisUser.setZipCode(user.getZipCode());
+        thisUser.setAdmin(user.getAdmin());
+        return userRepository.save(thisUser);
+
+        }
 }

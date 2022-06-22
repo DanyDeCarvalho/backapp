@@ -4,6 +4,7 @@ import com.example.Project.Models.Order;
 import com.example.Project.Models.Product;
 import com.example.Project.Models.User;
 import com.example.Project.ProductService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
     @GetMapping("/{id}")
-    public Optional<Product> getProduct(@PathVariable String id) {
+    public ResponseEntity<?> getProduct(@PathVariable String id) {
         return productService.getProductbyId(id);
     }
     @PostMapping("/color")
@@ -69,5 +70,9 @@ public class ProductController {
     @PostMapping("/categoryAndPriceAndName")
     public List<Product> getProductFilteredProductByCategoryAndPriceAndName(@RequestBody Product product) {
         return productService.getProductByCategoryAndPriceAndName(product);
+    }
+    @PutMapping("/{id}/update")
+    public Product updateProduct(@PathVariable String id,@RequestBody Product product) {
+        return productService.updateProduct(id, product);
     }
 }
