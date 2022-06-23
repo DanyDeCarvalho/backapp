@@ -35,7 +35,7 @@ import com.example.Project.Security.jwt.JwtUtils;
 import com.example.Project.Security.services.UserDetailsImpl;
 
 
-@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "true")
+@CrossOrigin(origins = "localhost:3000", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
