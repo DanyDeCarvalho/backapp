@@ -5,12 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 @Document(collection = "User")
 public class User {
     @Id
-    private ObjectId id;
+    private String id;
     @Field
     private String userName;
     @Field
@@ -45,7 +46,7 @@ public class User {
     public User() {
     }
 
-    public User(ObjectId id, String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+    public User(String id, String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
         this.id = id;
         this.userName = userName;
         this.name = name;
@@ -107,11 +108,11 @@ public class User {
         this.roles = roles;
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -24,11 +24,11 @@ public class UserService {
 
         return userRepository.findAll();
     }
-    public Optional<User> getUserId(ObjectId id) {
+    public Optional<User> getUserId(String id) {
 
         return userRepository.findById(id);
     }
-    public void deleteUserbyId(ObjectId id) {
+    public void deleteUserbyId(String id) {
          userRepository.deleteById(id);
     }
 
