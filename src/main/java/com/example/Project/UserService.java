@@ -1,6 +1,7 @@
 package com.example.Project;
 
 import com.example.Project.Models.User;
+import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.Project.Session.UserPassword;
@@ -23,11 +24,11 @@ public class UserService {
 
         return userRepository.findAll();
     }
-    public Optional<User> getUserId(String id) {
+    public Optional<User> getUserId(ObjectId id) {
 
         return userRepository.findById(id);
     }
-    public void deleteUserbyId(String id) {
+    public void deleteUserbyId(ObjectId id) {
          userRepository.deleteById(id);
     }
 

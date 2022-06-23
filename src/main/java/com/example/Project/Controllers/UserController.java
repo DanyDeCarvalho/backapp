@@ -1,6 +1,7 @@
 package com.example.Project.Controllers;
 import com.example.Project.Models.User;
 import com.example.Project.UserService;
+import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUser(@PathVariable String id) {
+    public Optional<User> getUser(@PathVariable ObjectId id) {
         return userService.getUserId(id);
     }
 

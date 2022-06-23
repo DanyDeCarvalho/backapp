@@ -1,4 +1,5 @@
 package com.example.Project.Models;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -9,7 +10,7 @@ import java.util.Set;
 @Document(collection = "User")
 public class User {
     @Id
-    private String id;
+    private ObjectId id;
     @Field
     private String userName;
     @Field
@@ -44,7 +45,7 @@ public class User {
     public User() {
     }
 
-    public User(String id, String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
+    public User(ObjectId id, String userName, String name, String lastName, Integer age, String email, String street, String zipCode, String city, String civility, Boolean admin, Set<BankCard> bankCard, String passwordSalt, String password, String passwordHash, Set<Role> roles) {
         this.id = id;
         this.userName = userName;
         this.name = name;
@@ -80,6 +81,11 @@ public class User {
         PasswordHash = passwordHash;
         this.roles = roles;
     }
+    public User(String userName, String email, String password) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String email, String password, Boolean admin) {
         this.email = email;
@@ -93,9 +99,6 @@ public class User {
     }
 
 
-    public User(String username, String email, String encode) {
-    }
-
     public Set<Role> getRoles() {
         return roles;
     }
@@ -104,11 +107,11 @@ public class User {
         this.roles = roles;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -216,7 +219,7 @@ public class User {
         this.city = city;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return userName;
     }
 
