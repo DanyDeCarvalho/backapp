@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
 @RestController
 @RequestMapping("/contact")
 public class ContactController {

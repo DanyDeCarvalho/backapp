@@ -1,5 +1,6 @@
 package com.example.Project;
 
+import com.example.Project.Models.Address;
 import com.example.Project.Models.User;
 import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,12 @@ public class UserService {
     public Optional<User> getUserId(String id) {
 
         return userRepository.findById(id);
+    }
+
+    public String getUserAddress(String id) {
+        User user = userRepository.findById(id).get();
+        String address = user.getStreet()+" "+user.getZipCode()+" "+user.getCity();
+        return address;
     }
     public void deleteUserbyId(String id) {
          userRepository.deleteById(id);

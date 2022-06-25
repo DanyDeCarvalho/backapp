@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+@CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
  @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -26,6 +27,11 @@ public class UserController {
     @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable String id) {
         return userService.getUserId(id);
+    }
+
+    @GetMapping("/{id}/address")
+    public String getUserAddress(@PathVariable String id) {
+        return userService.getUserAddress(id);
     }
 
     @PostMapping("/signUp")

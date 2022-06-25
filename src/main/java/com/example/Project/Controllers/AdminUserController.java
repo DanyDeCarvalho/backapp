@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
 @RestController
 @RequestMapping("/admin/users")
 public class AdminUserController {

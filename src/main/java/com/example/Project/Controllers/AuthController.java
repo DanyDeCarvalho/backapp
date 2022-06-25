@@ -35,7 +35,7 @@ import com.example.Project.Security.jwt.JwtUtils;
 import com.example.Project.Security.services.UserDetailsImpl;
 
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
