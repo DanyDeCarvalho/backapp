@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://back-dany.herokuapp.com", allowCredentials = "true")
+@CrossOrigin(origins = "https://back-dany.herokuapp.com/products", allowCredentials = "true")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
