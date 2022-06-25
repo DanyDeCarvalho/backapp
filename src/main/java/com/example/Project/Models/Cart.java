@@ -23,10 +23,10 @@ public class Cart {
     @Field
     private Integer quantity;
     @Field
-    private Float total;
+    private Long total;
     public Cart() {}
 
-    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Float total) {
+    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total) {
         this.id = id;
         this.product = product;
         this.userSession = userSession;
@@ -37,7 +37,7 @@ public class Cart {
         this.total = total;
     }
 
-    public Cart(Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Float total) {
+    public Cart(Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total) {
         this.product = product;
         this.userSession = userSession;
         this.validation = validation;
@@ -47,7 +47,7 @@ public class Cart {
         this.total = total;
     }
 
-    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String paymentMethod, Integer quantity, Float total) {
+    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String paymentMethod, Integer quantity, Long total) {
         this.id = id;
         this.product = product;
         this.userSession = userSession;
@@ -105,11 +105,11 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public Float getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Float total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
