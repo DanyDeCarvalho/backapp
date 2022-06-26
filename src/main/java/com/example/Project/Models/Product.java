@@ -36,15 +36,13 @@ public class Product {
     @Field
     private Integer stock;
     @Field
-    private Date dateAdded;
-    @Field
     private Integer quantityOnCart;
     @Field
     private Integer fav;
 
     public Product(){}
 
-    public Product(String id, String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart,Integer fav) {
+    public Product(String id, String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Integer quantityOnCart,Integer fav) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -58,12 +56,11 @@ public class Product {
         this.rate = rate;
         this.nbVote = nbVote;
         this.stock = stock;
-        this.dateAdded = dateAdded;
         this.quantityOnCart = quantityOnCart;
         this.fav = fav;
     }
 
-    public Product(String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Date dateAdded, Integer quantityOnCart,Integer fav) {
+    public Product(String name, String description, String image1, String image2, String image3, String image4, Set<Categories> category, String color, Double price, Double rate, Integer nbVote, Integer stock, Integer quantityOnCart,Integer fav) {
         this.name = name;
         this.description = description;
         this.image1 = image1;
@@ -76,7 +73,6 @@ public class Product {
         this.rate = rate;
         this.nbVote = nbVote;
         this.stock = stock;
-        this.dateAdded = dateAdded;
         this.quantityOnCart = quantityOnCart;
         this.fav = fav;
 
