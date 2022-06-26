@@ -141,14 +141,6 @@ public class Product {
         this.image4 = image4;
     }
 
-    public Date getDateAdded() {
-        return dateAdded;
-    }
-
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
-    }
-
     public Set<Categories> getCategory() {
         return category;
     }
