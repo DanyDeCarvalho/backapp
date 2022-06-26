@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @Document(collection = "Cart")
@@ -24,7 +25,22 @@ public class Cart {
     private Integer quantity;
     @Field
     private Long total;
+    @Field
+    private ArrayList listProduct;
+
     public Cart() {}
+
+    public Cart(String id, Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total, ArrayList listProduct) {
+        this.id = id;
+        this.product = product;
+        this.userSession = userSession;
+        this.validation = validation;
+        this.productId = productId;
+        this.paymentMethod = paymentMethod;
+        this.quantity = quantity;
+        this.total = total;
+        this.listProduct = listProduct;
+    }
 
     public Cart(String id, Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total) {
         this.id = id;
@@ -35,6 +51,17 @@ public class Cart {
         this.paymentMethod = paymentMethod;
         this.quantity = quantity;
         this.total = total;
+    }
+
+    public Cart(Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total, ArrayList listProduct) {
+        this.product = product;
+        this.userSession = userSession;
+        this.validation = validation;
+        this.productId = productId;
+        this.paymentMethod = paymentMethod;
+        this.quantity = quantity;
+        this.total = total;
+        this.listProduct = listProduct;
     }
 
     public Cart(Set<Product> product, String userSession, Boolean validation, String productId, String paymentMethod, Integer quantity, Long total) {
@@ -119,5 +146,13 @@ public class Cart {
 
     public void setProductId(String productId) {
         this.productId = productId;
+    }
+
+    public ArrayList getListProduct() {
+        return listProduct;
+    }
+
+    public void setListProduct(ArrayList listProduct) {
+        this.listProduct = listProduct;
     }
 }
