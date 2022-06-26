@@ -1,7 +1,6 @@
 package com.example.Project.Controllers;
 
 import com.example.Project.Models.Order;
-import com.example.Project.Models.User;
 import com.example.Project.OrderService;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +37,10 @@ public class OrderController {
         return orderService.getAllForOneUser(id);
     }
 
+    @GetMapping("/createOrder/{cartId}")
+    public Order createOrder(@PathVariable String cartId) {
+        return orderService.createOrder(cartId);
+    }
     @PostMapping("/save")
     public Order addOrder(@RequestBody Order order) {
         Order order1 = orderService.saveOrder(order);

@@ -6,6 +6,7 @@ import com.example.Project.Models.Product;
 import com.example.Project.Session.CartQuantity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -23,6 +24,8 @@ public class CartService {
     }
 
     public Cart saveCart(Cart cart) {
+        Cart cart2 = cartRepository.findByUserSession(cart.getUserSession()).get();
+        cartRepository.delete(cart2);
         return cartRepository.save(cart);
     }
 

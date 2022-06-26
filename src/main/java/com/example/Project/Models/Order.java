@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Document(collection = "Order")
@@ -20,48 +21,48 @@ public class Order {
     @Field
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime orderDate;
-    @DBRef
-    private Set<User> user;
     @Field
-    private Double total;
+    private String userId;
     @Field
-    private Cart cart;
+    private Long total;
+    @Field
+    private ArrayList cart;
     @Field
     private Set<DeliveryAddress> deliveryAddress;
 
     public Order() {}
 
-    public Order(String id, Integer orderNumber, String status, LocalDateTime orderDate, Set<User> user, Double total, Cart cart, Set<DeliveryAddress> deliveryAddress) {
+    public Order(String id, Integer orderNumber, String status, LocalDateTime orderDate, String userId, Long total, ArrayList cart, Set<DeliveryAddress> deliveryAddress) {
         this.id = id;
         this.orderNumber = orderNumber;
         this.status = status;
         this.orderDate = orderDate;
-        this.user = user;
+        this.userId = userId;
         this.total = total;
         this.cart = cart;
         this.deliveryAddress = deliveryAddress;
     }
 
-    public Order(Integer orderNumber, String status, LocalDateTime orderDate, Set<User> user, Double total, Cart cart, Set<DeliveryAddress> deliveryAddress) {
+    public Order(Integer orderNumber, String status, LocalDateTime orderDate, String userId, Long total, ArrayList cart, Set<DeliveryAddress> deliveryAddress) {
         this.orderNumber = orderNumber;
         this.status = status;
         this.orderDate = orderDate;
-        this.user = user;
+        this.userId = userId;
         this.total = total;
         this.cart = cart;
         this.deliveryAddress = deliveryAddress;
     }
 
-    public Order(Integer orderNumber, String status, Double total) {
+    public Order(Integer orderNumber, String status, Long total) {
         this.orderNumber = orderNumber;
         this.status = status;
         this.total = total;
     }
 
-    public Order(Integer orderNumber, LocalDateTime orderDate, Set<User> user) {
+    public Order(Integer orderNumber, LocalDateTime orderDate, String userId) {
         this.orderNumber = orderNumber;
         this.orderDate = orderDate;
-        this.user = user;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -97,27 +98,27 @@ public class Order {
     }
 
 
-    public Set<User> getUser() {
-        return user;
+    public String getUser() {
+        return userId;
     }
 
-    public void setUser(Set<User> user) {
-        this.user = user;
+    public void setUser(String userId) {
+        this.userId = userId;
     }
 
-    public Double getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
-    public Cart getCart() {
+    public ArrayList getCart() {
         return cart;
     }
 
-    public void setCart(Cart cart) {
+    public void setCart(ArrayList cart) {
         this.cart = cart;
     }
 
@@ -127,5 +128,13 @@ public class Order {
 
     public void setDeliveryAddress(Set<DeliveryAddress> deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
