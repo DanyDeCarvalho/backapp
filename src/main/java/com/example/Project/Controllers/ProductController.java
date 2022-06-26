@@ -43,6 +43,15 @@ public class ProductController {
     public List<Product> getCategoryProduct(@RequestBody Product product) {
         return productService.getProductByCategory(product);
     }
+    @PostMapping("/isFav")
+    public Product isFav(@RequestBody Product product) {
+        return productService.isFav(product);
+    }
+    @GetMapping("/isFav/{fav}")
+    public List<Product> isFav(@PathVariable Integer fav) {
+        return productService.allFav(fav);
+    }
+
     @GetMapping("/nameAsc")
     public List<Product> getNameAscProduct() {
         return productService.getProductByNameAsc();

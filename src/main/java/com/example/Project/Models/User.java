@@ -82,6 +82,8 @@ public class User {
         PasswordHash = passwordHash;
         this.roles = roles;
     }
+
+
     public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
@@ -227,4 +229,5 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
 }

@@ -46,6 +46,16 @@ public class ProductService {
     public List<Product> getProductByCategory(Product product) {
         return productRepository.findProductByCategory(product.getCategory());
     };
+
+    public Product isFav(Product product) {
+        Product product1 = productRepository.findById(product.getId()).get();
+        product1.setFav(product.getFav());
+        return productRepository.save(product1);
+    };
+
+    public List<Product> allFav(Integer fav) {
+       return productRepository.findAllByFav(fav);
+    };
     public List<Product> getProductByNameAsc() {
         return productRepository.findAllByOrderByNameAsc();
     };

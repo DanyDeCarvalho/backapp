@@ -10,6 +10,7 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     List<Product> findProductByColor(String color);
     List<Product> findProductByName(String name);
     List<Product> findProductByRate(Double rate);
+    List<Product> findAllByFav(Integer fav);
     List<Product> findProductByCategory(Set<Categories> category);
     List<Product> findProductByCategoryAndPriceAndRate(Set<Categories> category, Double price, Double rate);
     List<Product> findProductByCategoryAndPriceAndName(Set<Categories> category, Double price, String Name);

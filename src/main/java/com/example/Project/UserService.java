@@ -1,16 +1,14 @@
 package com.example.Project;
 
 import com.example.Project.Models.Address;
+import com.example.Project.Models.DeliveryAddress;
 import com.example.Project.Models.User;
 import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.Project.Session.UserPassword;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -30,11 +28,6 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public String getUserAddress(String id) {
-        User user = userRepository.findById(id).get();
-        String address = user.getStreet()+" "+user.getZipCode()+" "+user.getCity();
-        return address;
-    }
     public void deleteUserbyId(String id) {
          userRepository.deleteById(id);
     }
@@ -61,11 +54,17 @@ public class UserService {
 
     public User updateUser(User user) {
         User thisUser = userRepository.findById(user.getId()).get();
+        thisUser.setUserName(user.getUsername());
+        thisUser.setName(user.getName());
+        thisUser.setLastName(user.getLastName());
+        thisUser.setAge(user.getAge());
         thisUser.setEmail(user.getEmail());
         thisUser.setCity(user.getCity());
         thisUser.setStreet(user.getStreet());
         thisUser.setZipCode(user.getZipCode());
-        thisUser.setAdmin(user.getAdmin());
+        thisUser.setCivility(user.getCivility());
+        thisUser.setBankCard(user.getBankCard());
+        thisUser.setRoles(user.getRoles());
         return userRepository.save(thisUser);
 
         }
