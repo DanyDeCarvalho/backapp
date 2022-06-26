@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.google.common.eventbus.AllowConcurrentEvents;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -72,7 +71,7 @@ public class AuthController {
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
-    }
+    } // on verifie les donner pour voir si litilisateutr peut se connecter
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
@@ -122,5 +121,5 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-    }
+    } // on donne le role du user on hash le password ...
 }

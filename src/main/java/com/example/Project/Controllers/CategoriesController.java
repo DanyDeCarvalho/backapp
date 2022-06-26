@@ -2,12 +2,10 @@ package com.example.Project.Controllers;
 
 import com.example.Project.CategoriesService;
 import com.example.Project.Models.Categories;
-import com.example.Project.Models.Order;
-import com.example.Project.OrderService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
 @RestController

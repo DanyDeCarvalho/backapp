@@ -2,11 +2,9 @@ package com.example.Project.Controllers;
 
 import com.example.Project.CartService;
 import com.example.Project.Models.Cart;
-import com.example.Project.Models.Order;
-import com.example.Project.Models.Product;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "https://frd-co.vercel.app", allowCredentials = "true")
@@ -23,7 +21,7 @@ public class CartController {
     @GetMapping("/{userSession}")
     public Optional<Cart> getCart(@PathVariable String userSession) {
         return cartService.getCart(userSession);
-    }
+    } // recuperer un panier via le token
 
     @PostMapping("/save")
     public Cart addCart(@RequestBody Cart cart) {

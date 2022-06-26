@@ -1,6 +1,5 @@
 package com.example.Project.Controllers;
 import com.example.Project.UserService;
-import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,5 +18,5 @@ public class AdminUserController {
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable String id) {
         userService.deleteUserbyId(id);
-    }
+    } //supprimer un user
 }

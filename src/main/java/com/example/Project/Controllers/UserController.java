@@ -26,19 +26,11 @@ public class UserController {
     @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable String id) {
         return userService.getUserId(id);
-    }
+    } // recuperer un user en fonction de son id
 
-    @PostMapping("/signUp")
-    public User addUser(@RequestBody User user) {
-        return userService.signUp(user);
-    }
-    @PostMapping("/signIn")
-    public ResponseEntity<Object> signIn(@RequestBody User user) {
-        return userService.signIn(user);
-    }
     @PutMapping("/save")
     public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
-    }
+    } // mettre un jour les informations d'un user
 
 }

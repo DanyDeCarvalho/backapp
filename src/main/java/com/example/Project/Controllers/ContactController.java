@@ -2,7 +2,6 @@ package com.example.Project.Controllers;
 
 import com.example.Project.ContactService;
 import com.example.Project.Models.Contact;
-import com.example.Project.Models.Product;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,5 +31,5 @@ public class ContactController {
     @PostMapping("/save")
     public Contact addContact(@RequestBody Contact contact) {
         return contactService.saveContact(contact);
-    }
+    } // enregistere les commentaires
 }

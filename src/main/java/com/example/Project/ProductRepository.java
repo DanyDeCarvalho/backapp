@@ -13,7 +13,6 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     List<Product> findAllByFav(Integer fav);
     List<Product> findProductByCategory(Set<Categories> category);
     List<Product> findProductByCategoryAndPriceAndRate(Set<Categories> category, Double price, Double rate);
-    List<Product> findProductByCategoryAndPriceAndName(Set<Categories> category, Double price, String Name);
     List<Product> findAllByOrderByNameAsc();
     List<Product> findAllByOrderByPriceAsc();
     List<Product> findAllByOrderByPriceDesc();

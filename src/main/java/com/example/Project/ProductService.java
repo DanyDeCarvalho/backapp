@@ -5,7 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -74,8 +76,25 @@ public class ProductService {
     public List<Product> getProductByCategoryAndPriceAndRate(Product product) {
         return productRepository.findProductByCategoryAndPriceAndRate(product.getCategory(), product.getPrice(), product.getRate());
     };
-    public List<Product> getProductByCategoryAndPriceAndName(Product product) {
-        return productRepository.findProductByCategoryAndPriceAndName(product.getCategory(), product.getPrice(), product.getName());
+    public ResponseEntity<List<Product>>  getProductByFilter(Product filter) {
+        List<Product> productList = productRepository.findAll();
+
+        if (filter.getCategory() != null) {
+            productList = productList.stream().filter(product -> Objects.equals(product.getCategory(), filter.getCategory())).collect(Collectors.<Product>toList());
+        }
+        if (filter.getColor() != null) {
+            productList = productList.stream().filter(product -> Objects.equals(product.getColor(), filter.getColor())).collect(Collectors.<Product>toList());
+        }
+        if (filter.getPrice() != null && filter.getPrice() != null) {
+            productList = productList.stream().filter(product -> product.getPrice() > filter.getPrice() && product.getPrice() < filter.getPrice()).collect(Collectors.<Product>toList());
+        }
+        if (filter.getRate() != null) {
+            productList = productList.stream().filter(product -> Objects.equals(product.getRate(), filter.getRate())).collect(Collectors.<Product>toList());
+        }
+        if (filter.getStock() != null) {
+            productList = productList.stream().filter(product -> Objects.equals(product.getStock(), filter.getStock())).collect(Collectors.<Product>toList());
+        }
+        return ResponseEntity.ok(productList);
     };
 
     public Product updateProduct(Product product) {

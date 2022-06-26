@@ -20,12 +20,12 @@ public class DeliveryAddressController {
     @GetMapping("/{userId}")
     public List<DeliveryAddress> getDeliveryAddresses(@PathVariable String userId) {
         return deliveryAddrressService.getDeliveryAddressesByUserId(userId);
-    }
+    } // recuperer laddersse de livraison dun user
 
     @PostMapping("/save")
     public DeliveryAddress saveDeliveryAddress(@RequestBody DeliveryAddress deliveryAddress) {
         return deliveryAddrressService.saveDeliveryAddress(deliveryAddress);
-    }
+    }// enregister une address
 
 
 }
